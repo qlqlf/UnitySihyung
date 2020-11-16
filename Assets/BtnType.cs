@@ -20,13 +20,13 @@ public class BtnType : MonoBehaviour
     public void Start()
     {
         CanvasGroupOff(StartMenu);
-        CanvasGroupOff(PlayMenu);
+        CanvasGroupOn(PlayMenu);
         CanvasGroupOff(LoginMenu);
         CanvasGroupOff(SignUpMenu);
         CanvasGroupOff(FindMenu);
         CanvasGroupOff(MainMenu);
         CanvasGroupOff(TutorialMenu);
-        CanvasGroupOn(CashShopMenu);
+        CanvasGroupOff(CashShopMenu);
         CanvasGroupOff(JoinMenu);
     }
     public void OnBtnClick()
@@ -198,20 +198,6 @@ public class BtnType : MonoBehaviour
                 CanvasGroupOff(TutorialMenu);
                 CanvasGroupOff(CashShopMenu);
                 CanvasGroupOn(JoinMenu);
-                RoomScript roomScript = new RoomScript();
-                
-                var data = new Data_Move_x_y();
-                //Move_x_y move_x_y = new Move_x_y();
-                //move_x_y.set_x_y(10,12);
-                data.x = 10;
-                data.y = 12;
-                string message = JsonUtility.ToJson(data, prettyPrint: true);
-                //Debug.Log (message);
-                // string data = move_x_y.SaveToString();
-
-                // socket.EmitJson("move_friend", data);
-                SocketManger.Socket.Emit("Msg", message);
-                //SocketManager.Socket.Emit("Msg", "Hello, World!");
                 break;
             case BTNType.Back:
                 CanvasGroupOff(FindMenu);
@@ -223,9 +209,6 @@ public class BtnType : MonoBehaviour
                 CanvasGroupOff(TutorialMenu);
                 CanvasGroupOff(CashShopMenu);
                 CanvasGroupOff(JoinMenu);
-                break;
-            case BTNType.Buy:
-
                 break;
             case BTNType.Start:
                 StartCount = !StartCount;
