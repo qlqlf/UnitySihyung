@@ -5,7 +5,7 @@ using SocketIOClient;
 
 public class SocketManger : MonoBehaviour
 {
-    string url = "http://192.168.43.217:8080/";
+    string url = "http://203.237.200.136:8080/";
     public static Client Socket { get; private set; }
 
     void Awake()

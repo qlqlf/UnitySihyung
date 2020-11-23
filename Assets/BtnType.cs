@@ -13,18 +13,18 @@ public class BtnType : MonoBehaviour
     public BTNType currentType;
     public CanvasGroup StartMenu, LoginMenu, SignUpMenu, FindMenu, MainMenu, PlayMenu, TutorialMenu, CashShopMenu, JoinMenu;
     public InputField ID_text, Password_text, Email_text, Name_text;
-    public static String ip="192.168.43.217";
-    public static Boolean IDcheck = false, StartCount = false;
+    public static String ip= "203.237.200.136";
+    public static Boolean IDcheck = false;
 
 
     public void Start()
     {
         CanvasGroupOff(StartMenu);
-        CanvasGroupOn(PlayMenu);
+        CanvasGroupOff(PlayMenu);
         CanvasGroupOff(LoginMenu);
         CanvasGroupOff(SignUpMenu);
         CanvasGroupOff(FindMenu);
-        CanvasGroupOff(MainMenu);
+        CanvasGroupOn(MainMenu);
         CanvasGroupOff(TutorialMenu);
         CanvasGroupOff(CashShopMenu);
         CanvasGroupOff(JoinMenu);
@@ -149,10 +149,9 @@ public class BtnType : MonoBehaviour
                 if (string.IsNullOrEmpty(Name_text.text) == false)
                 {
                     StartCoroutine(UpdateNameWithWWW());
-                }
-                else
+                }else
                 {
-                    Toast.Instance.Show("Nickname을 입력해주세요", 3f);
+                    Toast.Instance.Show("닉네임을 설정해주세요");
                 }
                     break;
             case BTNType.Tutorial:
@@ -211,12 +210,7 @@ public class BtnType : MonoBehaviour
                 CanvasGroupOff(JoinMenu);
                 break;
             case BTNType.Start:
-                StartCount = !StartCount;
-                if (StartCount)
-                {
-                    Toast.Instance.Show("5명 모두 Start 준비가 되면 시작합니다.", 1f);
-                }
-                else Toast.Instance.Show("Start 취소", 1f);
+                //씬변환
                 break;
         }
     }
@@ -406,6 +400,7 @@ public class BtnType : MonoBehaviour
             Debug.LogFormat("{0}", res_name.message);
             if (res_name.message.Equals("닉네임 설정성공"))
             {
+                Toast.Instance.Show("닉네임 설정 성공.", 3f);
                 CanvasGroupOff(FindMenu);
                 CanvasGroupOff(LoginMenu);
                 CanvasGroupOff(SignUpMenu);

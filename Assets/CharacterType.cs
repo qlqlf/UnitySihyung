@@ -9,8 +9,9 @@ public class CharacterType : MonoBehaviour
 {
     public InputField ID_text;
     public Toggle Character;
-    public static string ip = "192.168.43.217";
-    public static string character_name = "Man";
+    public static string ip = "203.237.200.136";
+    public static string character_name;
+    public int c_character_number;
 
     private void Awake()
     {
@@ -30,7 +31,30 @@ public class CharacterType : MonoBehaviour
     public void SelectBtnClick()
     {
         StartCoroutine(UpdateCharacterWithWWW());
-        Debug.Log(character_name);
+        switch(character_name)
+        {
+            case "Man":
+                c_character_number = 0;
+                break;
+            case "Woman":
+                c_character_number = 1;
+                break;
+            case "Dracula":
+                c_character_number = 2;
+                break;
+            case "Franken":
+                c_character_number = 3;
+                break;
+            case "KangSi":
+                c_character_number = 4;
+                break;
+            case "Mummy":
+                c_character_number = 5;
+                break;
+            case "Witch":
+                c_character_number = 6;
+                break;
+        }
     }
     public class res_character
     {
@@ -58,7 +82,6 @@ public class CharacterType : MonoBehaviour
             if (res_character.message.Equals("캐릭터 설정 성공"))
             {
                 Toast.Instance.Show("캐릭터를" + character_name + "로 설정했습니다.", 3f);
-                Debug.LogFormat("{0}", res_character.message);
             }
             else
             {
