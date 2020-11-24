@@ -19,12 +19,12 @@ public class BtnType : MonoBehaviour
 
     public void Start()
     {
-        CanvasGroupOff(StartMenu);
+        CanvasGroupOn(StartMenu);
         CanvasGroupOff(PlayMenu);
         CanvasGroupOff(LoginMenu);
         CanvasGroupOff(SignUpMenu);
         CanvasGroupOff(FindMenu);
-        CanvasGroupOn(MainMenu);
+        CanvasGroupOff(MainMenu);
         CanvasGroupOff(TutorialMenu);
         CanvasGroupOff(CashShopMenu);
         CanvasGroupOff(JoinMenu);
@@ -208,9 +208,6 @@ public class BtnType : MonoBehaviour
                 CanvasGroupOff(TutorialMenu);
                 CanvasGroupOff(CashShopMenu);
                 CanvasGroupOff(JoinMenu);
-                break;
-            case BTNType.Start:
-                //씬변환
                 break;
         }
     }

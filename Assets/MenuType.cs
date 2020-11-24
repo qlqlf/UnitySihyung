@@ -19,7 +19,6 @@ public enum BTNType
     Logout,
     Join,
     Back,
-    Start
 }
 public class MenuType:MonoBehaviour
 {
