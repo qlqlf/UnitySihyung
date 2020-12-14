@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//enum으로 Button의 기능(type)별로 저장.
 public enum BTNType
 {
     Login,
